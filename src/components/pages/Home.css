@@ -1,0 +1,222 @@
+main{
+    min-height: calc(100vh - 88px);
+}
+
+.recent-products{
+    display: grid;
+    grid-gap: 0;
+    gap: 0;
+
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+
+    
+    max-height: calc(100vh - 75px);
+    margin-bottom: 2rem;
+}
+
+.recent-product-card:last-child{
+    grid-column: 2 / 4;
+    grid-row: 1 / 3; 
+}
+
+.recent-product-card{
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    max-height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: #F24D80;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);    
+    transition: 0.15s;
+    transition-duration: .15s;
+    transition-timing-function: linear;
+    height: 100% !important;
+    cursor: pointer;
+}
+
+.recent-product-card:nth-child(1){
+    background-color: #BF344D;
+}
+
+.recent-product-card:nth-child(3){
+    background-color: #7928ca;
+}
+
+.recent-product-card:nth-child(2){
+    background-color: #fff;
+}
+
+.recent-product-card .product-tag{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    padding-left: 1rem;
+    padding-right: 4rem;
+    transition: 0.5s;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    background-color: #F24D80;
+    color: #fff;
+}
+
+.product-tag .product-tag-title{
+    width: 100%;
+    max-width: 100%;
+    padding-top: 0;
+    font-size: 1.5rem;
+    letter-spacing: .4px;
+    line-height: 2.1em;
+    font-weight: 800;
+}
+
+.product-tag .product-tag-price{
+    display: inline-block;
+    font-size: .9rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    letter-spacing: .025em;
+    padding: 0 0 1.1rem 0;
+}
+
+.recent-product-card .product-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.recent-product-card:nth-child(2) .product-image img,
+.recent-product-card:nth-child(1) .product-image img{
+    margin-left: 8rem;
+    height: 500px;
+}
+
+.slider-products{
+    margin: 2rem 0;
+}
+
+.slider-products-title, 
+.slider-categories-title, 
+.banner-title{
+    margin-bottom: 1.3rem;
+    font-weight: 700;
+}
+
+.products-slider, .categories-slider{
+    display: flex;
+    overflow: hidden;
+}
+
+.categories-slider .arrow{
+    margin-top: 100px;    
+}
+
+.category{
+    min-width: 200px;
+    max-width: 200px;
+    margin-right: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.category .category-img{
+    height: 200px;
+    border-radius: 20px;
+}   
+
+.category .category-img:hover{
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 18%);
+}
+
+.category .category-name{
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #111;
+    margin-top: 1rem;
+}
+
+.products{
+    background-color: #fff;
+    border-radius: 5px;
+    min-width: 200px;
+    max-width: 200px;
+    margin-right: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.products:hover{
+    border: 1px solid #F24D80;
+}
+
+.products .product-img{
+    width: 100%;
+}
+
+.product-name{
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #111;
+}
+
+.product-price{
+    margin: 1rem 0 1rem .5rem;
+}
+
+.product-price span:nth-child(1){
+    display: block;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.product-price span:nth-child(2){
+    display: block;
+    font-weight: 400;
+    font-size: 0.75rem;
+}
+
+.arrow {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    color: #F24D80;
+    line-height: 30px;
+    margin-top: 130px;
+    z-index: 1000;
+}
+
+.arrow-left{
+    margin-left: -15px;
+}
+
+.arrow-right {
+    left: 1570px;
+}
+
+.banner{
+    margin: 2rem 0;
+}
+
+.banner-img{
+    border-radius: 15px;
+    width: 100%;
+    height: 300px;
+}
+
+.link{
+    text-decoration: none;
+}
