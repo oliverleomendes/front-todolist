@@ -27,10 +27,10 @@ export default class Header extends Component{
                                 <li className="nav-item dropdown my-account">
                                     <Link to="" className="nav-link" id="my-account" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i className="ion-person me-2"></i>
-                                        Minha Conta
+                                        Olá, username
                                     </Link>
                                     <ul className="dropdown-menu" aria-labelledby="my-account">
-                                        <li><a className="dropdown-item" href="#">Action</a></li>
+                                        <li><a className="dropdown-item" href="#">Sair</a></li>
                                     </ul>
                                 </li>                               
                             </ul>

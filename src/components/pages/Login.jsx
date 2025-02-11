@@ -1,27 +1,39 @@
 import React, { useState } from 'react';
 import "./Login.css";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Login = ({ onLogin }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    const [error, setError] = useState('');    
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        await axios.post('http://localhost:4000/usuario/autenticar', {
-            "email": username,
-            "senha": password
-        }).then(response => {
-            const dados = response.data;
-            
-            if(dados.cod == 0) 
-                onLogin();
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error)
-        })
+        if(username != "" && password != ""){
+            await axios.post('http://localhost:4000/usuario/autenticar', {
+                "email": username,
+                "senha": password
+            }).then(response => {
+                const dados = response.data;
+    
+                if (dados.cod == 0) {
+                    localStorage.setItem('TODO_TOKEN', dados.token)
+                    onLogin()
+                    navigate('/')
+                } else {
+                    setError('Credenciais inválidas');
+                }
+    
+            })
+            .catch(error => {
+                setError('Credenciais inválidas');
+            })
+        } else {
+            setError('Preencha todos os campos.');
+        }
         
     }
 
@@ -35,6 +47,9 @@ const Login = ({ onLogin }) => {
                                 <h5 className="text-center">Autenticação</h5>
                             </div>
                             <div className="card-body">
+
+                                {error && <div className="alert alert-danger">{error}</div>}
+                                
                                 <div className="row">
                                     <div className="col-md-12">
                                         <label htmlFor="">Usuário:</label>
