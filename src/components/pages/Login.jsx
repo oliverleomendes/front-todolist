@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./Login.css";
 import axios from 'axios';
 
-const Login = () => {
+const Login = ({ onLogin }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -14,7 +14,10 @@ const Login = () => {
             "email": username,
             "senha": password
         }).then(response => {
-            console.log(response.data)
+            const dados = response.data;
+            
+            if(dados.cod == 0) 
+                onLogin();
         })
         .catch(error => {
             console.error('Error fetching data:', error)
