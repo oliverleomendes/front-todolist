@@ -1,15 +1,19 @@
-import { Component } from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { useState } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Dash from "../../pages/Dash";
 import Login from "../../pages/Login";
 
-export default class Main extends Component{
-    render(){
-        return(
-            <main>
-                <Routes>
-                    <Route path="/" element={<Login />} />
-                </Routes>
-            </main>
-        )
-    }
+const Main = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    return(
+        <main>
+            <Routes>
+                <Route path="/" element={isLoggedIn ? <Dash /> : <Navigate to="/login" />} />
+                <Route path="/login" element={<Login onLogin={() => setIsLoggedIn(true)} />} />
+            </Routes>
+        </main>
+    )
 }
+
+export default Main
