@@ -33,8 +33,7 @@ const Login = ({ onLogin }) => {
             })
         } else {
             setError('Preencha todos os campos.');
-        }
-        
+        }        
     }
 
     return(

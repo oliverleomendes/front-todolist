@@ -20,7 +20,7 @@ const Dash = () => {
             <h1>Bem-vindo ao Dash!</h1>
             <ul>
                 {tasks.map(task => (
-                    <li key={task.id}>{task.tarefa}</li>
+                    <li key={task.id}>{task.tarefa} - {task.responsavel}</li>
                 ))}
             </ul>
         </div>
